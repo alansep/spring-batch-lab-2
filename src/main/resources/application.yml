@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: spring-batch-lab
+  datasource:
+    url: jdbc:postgresql://localhost:5432/batchdb
+    username: springbatch
+    password: springbatch
+    driver-class-name: org.postgresql.Driver
