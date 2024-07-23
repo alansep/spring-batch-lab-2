@@ -1,6 +1,6 @@
-package com.alansep.spring_batch_lab.config;
+package com.alansep.spring_batch_lab.config.studentlistreading;
 
-import com.alansep.spring_batch_lab.model.entity.Person;
+import com.alansep.spring_batch_lab.model.entity.Student;
 import org.springframework.batch.core.BatchStatus;
 import org.springframework.batch.core.JobExecution;
 import org.springframework.batch.core.JobExecutionListener;
@@ -23,7 +23,7 @@ public class JobCompletionNotificationListener implements JobExecutionListener {
         if (jobExecution.getStatus() == BatchStatus.COMPLETED) {
             System.out.println("!!! JOB FINISHED! Time to verify the results");
 
-            jdbcTemplate.query("SELECT first_name, last_name FROM people", new DataClassRowMapper<>(Person.class)).forEach(person -> System.out.println("Found <" + person.getFirstName() + " " + person.getLastName() + "> in the database."));
+            jdbcTemplate.query("SELECT first_name, last_name FROM student", new DataClassRowMapper<>(Student.class)).forEach(student -> System.out.println("Found <" + student.getFirstName() + " " + student.getLastName() + "> in the database."));
         }
     }
 }
